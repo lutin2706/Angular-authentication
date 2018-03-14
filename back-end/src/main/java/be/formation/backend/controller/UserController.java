@@ -25,7 +25,7 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity register(@RequestBody UserFormDTO userFormDTO) {
-        User created = userService.register(userFormDTO.username, userFormDTO.password);
+        User created = userService.register(userFormDTO.username, userFormDTO.password, false);
         return ResponseEntity.created(URI.create("/api/users/" + created.getId())).body(created);
     }
 

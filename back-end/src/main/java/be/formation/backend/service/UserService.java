@@ -4,5 +4,5 @@ import be.formation.backend.model.entity.User;
 
 public interface UserService {
 
-    User register(String username, String password);
+    User register(String username, String password, boolean isAdmin);
 }

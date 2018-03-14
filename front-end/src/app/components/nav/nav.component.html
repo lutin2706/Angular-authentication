@@ -5,14 +5,29 @@
     </li>
   </ul>
   <ul>
-    <li *ngIf="!connectedUser">
-      <a href="#" routerLink="/signup">Sign up</a>
-    </li>
-    <li *ngIf="!connectedUser">
-      <a href="#" routerLink="/login">Log in</a>
-    </li>
-    <li *ngIf="connectedUser">
-      <a href="#" (click)="logout()">Log out ({{connectedUser.username}})</a>
-    </li>
+    <ng-container *ngIf="!user">
+      <li>
+        <a href="#" routerLink="/">Sign up</a>
+      </li>
+      <li>
+        <a href="#" routerLink="/login">Log in</a>
+      </li>
+    </ng-container>
+    <ng-container *ngIf="user">
+      <li>
+        <a href="#" (click)="logout()">Log out ({{user.username}})</a>
+      </li>
+    </ng-container>
   </ul>
+  <!--<ul>-->
+    <!--<li *ngIf="!connectedUser">-->
+      <!--<a href="#" routerLink="/signup">Sign up</a>-->
+    <!--</li>-->
+    <!--<li *ngIf="!connectedUser">-->
+      <!--<a href="#" routerLink="/login">Log in</a>-->
+    <!--</li>-->
+    <!--<li *ngIf="connectedUser">-->
+      <!--<a href="#" (click)="logout()">Log out ({{connectedUser.username}})</a>-->
+    <!--</li>-->
+  <!--</ul>-->
 </nav>

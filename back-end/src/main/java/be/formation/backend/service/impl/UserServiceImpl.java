@@ -9,6 +9,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 @Service
@@ -28,12 +30,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User register(String username, String password) {
+    public User register(String username, String password, boolean isAdmin) {
 
         User user = new User();
         user.setUsername(username);
         user.setPassword(passwordEncoder.encode(password));
-        user.setAuthorities(Collections.singletonList(createOrGetAuthority("ROLE_USER")));
+        user.setAuthorities(new ArrayList<>(Collections.singletonList(createOrGetAuthority("ROLE_USER"))));
+        if (isAdmin) {
+            user.getAuthorities().add(createOrGetAuthority("ROLE_ADMIN"));
+        }
         user.setAccountNonExpired(true);
         user.setAccountNonLocked(true);
         user.setCredentialsNonExpired(true);

@@ -16,7 +16,8 @@ public class DbInit implements InitializingBean {
     @Override
     public void afterPropertiesSet() throws Exception {
 
-        userService.register("user", "user");
-        userService.register("toto", "toto");
+        userService.register("user", "user", false);
+        userService.register("toto", "toto", false);
+        userService.register("admin", "admin", true);
     }
 }

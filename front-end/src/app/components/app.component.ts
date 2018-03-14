@@ -12,7 +12,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authService.connectedUser.subscribe(user => console.log(user));
-    this.authService.checkAuthentication();
+    this.authService.whoAmI();
   }
 }
