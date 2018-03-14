@@ -1,0 +1,18 @@
+<nav>
+  <ul>
+    <li>
+      <a href="#" routerLink="/">Home</a>
+    </li>
+  </ul>
+  <ul>
+    <li *ngIf="!connectedUser">
+      <a href="#" routerLink="/signup">Sign up</a>
+    </li>
+    <li *ngIf="!connectedUser">
+      <a href="#" routerLink="/login">Log in</a>
+    </li>
+    <li *ngIf="connectedUser">
+      <a href="#" (click)="logout()">Log out ({{connectedUser.username}})</a>
+    </li>
+  </ul>
+</nav>

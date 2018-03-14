@@ -1,0 +1,27 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  background: darkslategrey;
+}
+
+nav > ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav > ul > li {
+
+}
+
+nav > ul > li > a {
+  display: inline-block;
+  padding: 1em;
+  color: white;
+  text-decoration: none;
+}
+
+nav > ul > li > a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
